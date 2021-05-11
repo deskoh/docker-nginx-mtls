@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  nginx-mtls:
+    build: .
+    image: nginx:mtls
+    container_name: nginx-mtls
+    environment:
+      - SERVER_CA
+      - SERVER_KEY
+      - CLIENT_CA
+    restart: unless-stopped
+    ports:
+    - "8443:8443"
+    - "8080:8080"
