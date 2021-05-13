@@ -6,8 +6,8 @@
 
 # Need quotes to echo multi-line env var
 mkdir -p /etc/nginx/certs/
-[[ ! -z "$SERVER_CERT" ]] && echo "$SERVER_CERT" > /etc/nginx/certs/tls.crt
-[[ ! -z "$SERVER_KEY" ]] && echo "$SERVER_KEY" > /etc/nginx/certs/tls.key
+[[ ! -z "$SERVER_CERT" ]] && echo "$SERVER_CERT" > /etc/nginx/certs/server.crt
+[[ ! -z "$SERVER_KEY" ]] && echo "$SERVER_KEY" > /etc/nginx/certs/server.key
 [[ ! -z "$CLIENT_CA" ]] && echo "$CLIENT_CA" > /etc/nginx/certs/clientCA.crt
 
 # Forward args to CMD

@@ -9,7 +9,14 @@ services:
       - SERVER_CERT
       - SERVER_KEY
       - CLIENT_CA
+      - PROXY_URL
+      - PROXY_PROTOCOL
+      - RESOLVER
+      - RESOLVER_CACHE_TTL
     restart: unless-stopped
     ports:
     - "8443:8443"
     - "8080:8080"
+    # For debugging
+    volumes:
+      - ./config/templates/proxy-mtls.conf:/etc/nginx/templates/default.conf.template

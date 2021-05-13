@@ -4,17 +4,18 @@ ARG BASE_TAG=stable-alpine
 
 FROM ${BASE_REGISTRY}/${BASE_IMAGE}:${BASE_TAG} as base
 
-COPY ./config/default-mtls.conf /etc/nginx/conf.d/default.conf
+COPY ./config/*.inc /etc/nginx/
+COPY ./config/templates/proxy-mtls.conf /etc/nginx/templates/default.conf.template
 
-COPY entrypoint.sh /usr/local/bin/
+COPY ./docker-entrypoint.d/ /docker-entrypoint.d/
+
 USER root
-RUN chmod +x /usr/local/bin/entrypoint.sh
+RUN chmod +x /docker-entrypoint.d/40-write-certs.sh
 USER nginx
 
 ENV SERVER_CERT= \
     SERVER_KEY= \
-    CLIENT_CA=
-
-ENTRYPOINT [ "entrypoint.sh" ]
-
-CMD [ "nginx", "-g", "daemon off;" ]
+    CLIENT_CA= \
+    PROXY_URL=httpbin.org \
+    PROXY_PROTOCOL=http \
+    PROXY_PORT=80
