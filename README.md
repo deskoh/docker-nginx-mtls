@@ -62,3 +62,5 @@ Client Key (loaded by client): `/certs/client/client.key`
 ## Reference
 
 [Using DNS for Service Discovery with NGINX and NGINX Plus](https://www.nginx.com/blog/dns-service-discovery-nginx-plus/)
+
+[SSL Termination for TCP Upstream Servers](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-tcp/)

@@ -16,6 +16,7 @@ USER nginx
 ENV SERVER_CERT= \
     SERVER_KEY= \
     CLIENT_CA= \
+    RESOLVER=1.1.1.1 \
     PROXY_URL=httpbin.org \
     PROXY_PROTOCOL=http \
     PROXY_PORT=80

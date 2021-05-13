@@ -11,12 +11,13 @@ services:
       - CLIENT_CA
       - PROXY_URL
       - PROXY_PROTOCOL
-      - RESOLVER
-      - RESOLVER_CACHE_TTL
+      - PROXY_PORT
     restart: unless-stopped
     ports:
     - "8443:8443"
     - "8080:8080"
     # For debugging
-    volumes:
-      - ./config/templates/proxy-mtls.conf:/etc/nginx/templates/default.conf.template
+    # volumes:
+    #  - ./docker-entrypoint.d/40-write-certs.sh:/docker-entrypoint.d/40-write-certs.sh:ro
+    #   - ./config/default.conf:/etc/nginx/nginx.conf:ro
+    #   - ./config/templates/proxy-mtls.conf:/etc/nginx/templates/default.conf.template:ro
