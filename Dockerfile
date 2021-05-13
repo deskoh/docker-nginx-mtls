@@ -11,7 +11,7 @@ USER root
 RUN chmod +x /usr/local/bin/entrypoint.sh
 USER nginx
 
-ENV SERVER_CA= \
+ENV SERVER_CERT= \
     SERVER_KEY= \
     CLIENT_CA=
 
