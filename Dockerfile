@@ -11,6 +11,7 @@ COPY ./docker-entrypoint.d/ /docker-entrypoint.d/
 
 USER root
 RUN chmod +x /docker-entrypoint.d/40-write-certs.sh
+RUN chmod +x /docker-entrypoint.d/50-get-dns.sh
 USER nginx
 
 ENV NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx

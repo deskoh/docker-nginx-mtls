@@ -44,6 +44,12 @@ curl --cacert certs/server/serverCA.crt \
 openssl s_client -CAfile certs/server/serverCA.crt -connect localhost:8443
 ```
 
+## ECS Fargate DNS Discovery
+
+If `RESOLVER` is not defined, the startup script `50-get-dns.sh` will attempt to check if [Fargate Metadata Endpoint](https://docs.aws.amazon.com/AmazonECS/latest/userguide/task-metadata-endpoint-v4-fargate.html) is available to discover the DNS.
+
+The data returned by the endpoint is in a single line and can be found in `test/data.json`. The data can be served using [`serve` npm package](https://www.npmjs.com/package/serve) for testing.
+
 ## Client / Server configuration
 
 Server CA (trusted / loaded by client): `certs/server/serverCA.crt`
