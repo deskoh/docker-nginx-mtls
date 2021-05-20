@@ -64,6 +64,13 @@ Client Cert (loaded by client): `/certs/client/client.crt`
 
 Client Key (loaded by client): `/certs/client/client.key`
 
+## Logs of Interest
+
+```txt
+2021/01/01 10:00:01 [warn] 56#56: *15086 upstream server temporarily disabled while connecting to upstream, client: 111.111.111.111, server: 0.0.0.0:8443, upstream: "100.100.100.100:80", bytes from/to client:75/0, bytes from/to upstream:0/0
+2021/01/01 10:00:02 [error] 56#56: *15086 upstream timed out (110: Operation timed out) while connecting to upstream, client: 111.111.111.111, server: 0.0.0.0:8443, upstream: "100.100.100.100:80", bytes from/to client:75/0, bytes from/to upstream:0/0
+2021/01/01 10:00:03 [crit] 56#56: *2521 SSL_shutdown() failed (SSL: error:14094123:SSL routines:ssl3_read_bytes:application data after close notify) while SSL handshaking, client: 111.111.111.111, server: 0.0.0.0:8443
+```
 
 ## Reference
 
