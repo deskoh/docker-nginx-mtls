@@ -19,6 +19,7 @@ ENV NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx
 ENV SERVER_CERT= \
     SERVER_KEY= \
     CLIENT_CA= \
+    PROXY_PROTOCOL= \
     RESOLVER=1.1.1.1 \
     PROXY_URL=httpbin.org \
     PROXY_PORT=80

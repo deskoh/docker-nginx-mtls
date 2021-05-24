@@ -9,6 +9,7 @@ services:
       - SERVER_CERT
       - SERVER_KEY
       - CLIENT_CA
+      - PROXY_PROTOCOL
       - PROXY_URL
       - PROXY_PORT
       - RESOLVER

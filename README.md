@@ -64,6 +64,10 @@ Client Cert (loaded by client): `/certs/client/client.crt`
 
 Client Key (loaded by client): `/certs/client/client.key`
 
+## PROXY Protocol
+
+To enable [PROXY protocol](https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/), set environment variable `PROXY_PROTOCOL=proxy_protocol`.
+
 ## Logs of Interest
 
 ```txt
@@ -77,3 +81,7 @@ Client Key (loaded by client): `/certs/client/client.key`
 [Using DNS for Service Discovery with NGINX and NGINX Plus](https://www.nginx.com/blog/dns-service-discovery-nginx-plus/)
 
 [SSL Termination for TCP Upstream Servers](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-tcp/)
+
+[TCP/UDP Load Balancing with NGINX: Overview, Tips, and Tricks](https://www.nginx.com/blog/tcp-load-balancing-udp-load-balancing-nginx-tips-tricks/)
+
+[AWS ELB: Proxy Protocol](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol)
