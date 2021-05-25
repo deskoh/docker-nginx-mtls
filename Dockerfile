@@ -14,7 +14,3 @@ USER nginx
 ENV SERVER_CA= \
     SERVER_KEY= \
     CLIENT_CA=
-
-ENTRYPOINT [ "entrypoint.sh" ]
-
-CMD [ "nginx", "-g", "daemon off;" ]
