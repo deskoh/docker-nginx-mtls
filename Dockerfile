@@ -4,13 +4,15 @@ ARG BASE_TAG=stable-alpine
 
 FROM ${BASE_REGISTRY}/${BASE_IMAGE}:${BASE_TAG} as base
 
+COPY ./config/*.inc /etc/nginx/
 COPY ./config/default-mtls.conf /etc/nginx/conf.d/default.conf
 
-COPY entrypoint.sh /usr/local/bin/
+COPY ./docker-entrypoint.d/ /docker-entrypoint.d/
+
 USER root
-RUN chmod +x /usr/local/bin/entrypoint.sh
+RUN chmod +x /docker-entrypoint.d/40-write-certs.sh
 USER nginx
 
-ENV SERVER_CA= \
+ENV SERVER_CERT= \
     SERVER_KEY= \
     CLIENT_CA=

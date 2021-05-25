@@ -6,7 +6,7 @@ services:
     image: nginx:mtls
     container_name: nginx-mtls
     environment:
-      - SERVER_CA
+      - SERVER_CERT
       - SERVER_KEY
       - CLIENT_CA
     restart: unless-stopped
