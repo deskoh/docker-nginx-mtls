@@ -6,6 +6,7 @@ FROM ${BASE_REGISTRY}/${BASE_IMAGE}:${BASE_TAG} as base
 
 COPY ./config/*.inc /etc/nginx/
 COPY ./config/templates/conf.d/default.conf /etc/nginx/templates/conf.d/default.conf.template
+COPY ./config/templates/nginx.conf /etc/nginx/templates/nginx.conf.template
 
 COPY ./docker-entrypoint.d/ /docker-entrypoint.d/
 
@@ -20,5 +21,6 @@ ENV SERVER_CERT= \
     SERVER_KEY= \
     CLIENT_CA= \
     RESOLVER=1.1.1.1 \
+    KEEPALIVE_TIMEOUT=45 \
     PROXY_URL=http://httpbin.org \
     PROXY_PORT=80
