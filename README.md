@@ -10,12 +10,12 @@ docker run --name nginx-mtls -d -p 8443:8443 --restart=unless-stopped \
   p.cr.io/base/nginx
 
 # Test server (ignore invalid CA)
-curl -k --cert certs/client/client.crt --key certs/client/client.key https://localhost:8443/
+curl -k --cert certs/client/client.crt --key certs/client/client.key https://localhost:8443/get
 
 # Test server
-curl -k --cacert certs/server/serverCA.crt \
+curl --cacert certs/server/serverCA.crt \
      --cert certs/client/client.crt --key certs/client/client.key \
-     https://localhost:8443/
+     https://localhost:8443/get
 
 curl -k https://localhost:8443
 ```

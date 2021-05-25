@@ -9,6 +9,10 @@ services:
       - SERVER_CERT
       - SERVER_KEY
       - CLIENT_CA
+      - PROXY_URL
+      - PROXY_PORT
+      - RESOLVER
+      - ECS_CONTAINER_METADATA_URI_V4
     restart: unless-stopped
     ports:
     - "8443:8443"

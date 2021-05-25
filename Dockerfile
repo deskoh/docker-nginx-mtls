@@ -5,14 +5,20 @@ ARG BASE_TAG=stable-alpine
 FROM ${BASE_REGISTRY}/${BASE_IMAGE}:${BASE_TAG} as base
 
 COPY ./config/*.inc /etc/nginx/
-COPY ./config/default-mtls.conf /etc/nginx/conf.d/default.conf
+COPY ./config/templates/conf.d/default.conf /etc/nginx/templates/conf.d/default.conf.template
 
 COPY ./docker-entrypoint.d/ /docker-entrypoint.d/
 
 USER root
 RUN chmod +x /docker-entrypoint.d/40-write-certs.sh
+RUN chmod +x /docker-entrypoint.d/50-get-dns.sh
 USER nginx
+
+ENV NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx
 
 ENV SERVER_CERT= \
     SERVER_KEY= \
-    CLIENT_CA=
+    CLIENT_CA= \
+    RESOLVER=1.1.1.1 \
+    PROXY_URL=http://httpbin.org \
+    PROXY_PORT=80
