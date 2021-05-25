@@ -23,4 +23,5 @@ ENV SERVER_CERT= \
     RESOLVER=1.1.1.1 \
     KEEPALIVE_TIMEOUT=45 \
     PROXY_URL=http://httpbin.org \
+    TZ=Asia/Singapore \
     PROXY_PORT=80
