@@ -5,4 +5,4 @@
   # 1-MB shared cache can hold approximately 4,000 sessions
   ssl_session_cache         shared:SSL:20m;
   ssl_session_timeout       4h;
-  ssl_session_tickets       on;
+  ssl_session_tickets       off;
